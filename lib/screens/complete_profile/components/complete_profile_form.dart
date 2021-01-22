@@ -6,13 +6,13 @@ import 'package:shop_app/helper/urls.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-import 'package:shop_app/cache/UserCache.dart';
+import 'package:shop_app/services/UserCache.dart';
+import 'package:shop_app/screens/otp/components/otp_core.dart';
+import 'package:shop_app/services/localstorage_service.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
-
   String userName;
   String firstName;
   String lastName;
@@ -20,13 +20,13 @@ class CompleteProfileForm extends StatefulWidget {
   String age;
   String phone;
   String address;
-
   @override
   _CompleteProfileFormState createState() => _CompleteProfileFormState();
 }
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   final _formKey = GlobalKey<FormState>();
+  final userCache = UserCache();
   final List<String> errors = [];
 
   String userName;
@@ -36,6 +36,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String age;
   String phone;
   String address;
+  String city;
+  String country;
+  int pinCode;
+
+
   void addError({String error}) {
     if (!errors.contains(error))
       setState(() {
@@ -50,6 +55,17 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       });
   }
 
+  Future validateCache() async{
+    String loginCache = await userCache.read();
+    print("The read value from cache is: " + loginCache);
+
+    if(loginCache.contains("username")){
+      Map<String,dynamic> user = json.decode(loginCache.toString());
+      if(user.containsKey('username')){
+        userName = user['username'];
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -69,11 +85,19 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(30)),
+          buildCityFormField(),
+          SizedBox(height: getProportionateScreenHeight(25)),
+          buildCountryFormField(),
+          SizedBox(height: getProportionateScreenHeight(25)),
+          buildPinCodeFormField(),
+          SizedBox(height: getProportionateScreenHeight(25)),
           DefaultButton(
             text: "continue",
-            press: () {
+            press: () async {
+              await validateCache();
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                otpSend(context ,phone);
                 Future response = userDetails(
                     userName,
                     firstName,
@@ -81,7 +105,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                     profession,
                     age,
                     phone,
-                    address
+                    address,
+                    city,
+                    country,
+                    pinCode
                 );
                 Navigator.pushNamed(context, OtpScreen.routeName);
               }
@@ -96,12 +123,51 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       decoration: InputDecoration(
         labelText: "Address",
-        hintText: "Enter your phone address",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
+        hintText: "Enter your Address",
+        // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
             CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+      ),
+    );
+  }
+  TextFormField buildCityFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "City",
+        hintText: "Enter your City",
+        // If  you are using latest version of flutter then label text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon:
+        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+      ),
+    );
+  }
+  TextFormField buildCountryFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Country",
+        hintText: "Enter your Country",
+        // If  you are using latest version of flutter then label text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon:
+        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+      ),
+    );
+  }
+  TextFormField buildPinCodeFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Pin-Code",
+        hintText: "Enter your Pin-Code",
+        // If  you are using latest version of flutter then label text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon:
+        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
       ),
     );
   }
@@ -202,25 +268,33 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     );
   }
 
-  Future<http.Response> userDetails(userName, firstName, lastName, profession, age, phoneNumber, address) async{
+  LocalStorageService storage = LocalStorageService();
 
-    //var url = "http://192.168.0.2:8000/updateDetails";
+  Future<http.Response> userDetails(userName, firstName, lastName, profession, age, phoneNumber, address, city, country, pinCode) async{
 
     var body = json.encode({
-      "username" : userName,
-      "firstName": firstName,
-      "lastName": lastName,
-      "profession": profession,
-      "age": age,
-      "phone": phoneNumber,
-      "address": address
+      "userName": userName,
+      "phoneNumber":phoneNumber,
+      "userData": {
+        "firstName": firstName,
+        "lastName": lastName,
+        "profession": profession,
+        "age": age,
+        "address":{
+          "line1": address,
+          "city": city,
+          "country": country,
+          "pinCode": pinCode
+        }
+      }
     });
-
+    storage.getFromDisk(userName);
     var response = await http.post(Urls.update,
         headers: {"Content-Type": "application/json"},
         body: body);
+
     print("${response.statusCode}");
-    print("${response.body}");
+    print(json.decode(response.body).toString());
 
     return response;
   }

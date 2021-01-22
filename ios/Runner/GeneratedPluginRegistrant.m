@@ -40,6 +40,12 @@
 @import shared_preferences;
 #endif
 
+#if __has_include(<sms/SmsPlugin.h>)
+#import <sms/SmsPlugin.h>
+#else
+@import sms;
+#endif
+
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
@@ -49,6 +55,7 @@
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
   [FLTSharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharedPreferencesPlugin"]];
+  [SmsPlugin registerWithRegistrar:[registry registrarForPlugin:@"SmsPlugin"]];
 }
 
 @end

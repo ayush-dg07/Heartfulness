@@ -9,7 +9,7 @@ import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/screens/complete_profile/components/complete_profile_form.dart';
 import 'package:shop_app/helper/urls.dart';
-import 'package:shop_app/cache/UserCache.dart';
+import 'package:shop_app/services/UserCache.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
@@ -21,6 +21,7 @@ import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:shop_app/services/localstorage_service.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -47,6 +48,7 @@ class _SignFormState extends State<SignForm> {
         errors.remove(error);
       });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +110,7 @@ class _SignFormState extends State<SignForm> {
   }
 
   var completeForm = new CompleteProfileForm();
+  LocalStorageService storage = LocalStorageService();
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
@@ -220,7 +223,7 @@ class _SignFormState extends State<SignForm> {
   bool loginPressed = false;
   final userCache = UserCache();
 
-  void loginAuth() async {
+  Future<Widget> loginAuth() async {
     Map resp;
     bool hasError = false;
     String errMsg = "Unexpected error";
@@ -239,14 +242,18 @@ class _SignFormState extends State<SignForm> {
           'username': username,
           'password': password,
         });
+
+        LocalStorageService.usernameKey = username;
+        LocalStorageService.passwordKey = password;
+        storage.saveStringToDisk(LocalStorageService.usernameKey, LocalStorageService.passwordKey);
         resp = json.decode(response.toString());
         if (resp.containsKey('success')) {
           await userCache.write(response.data);
-          print("works well");
+          print("Login success");
         }else {
           hasError = true;
           errMsg = "Username/password combination incorrect";
-          Container(
+          return Container(
             child: AlertDialog(
               title: Text("Invalid entry"),
               content: SingleChildScrollView(
@@ -261,7 +268,7 @@ class _SignFormState extends State<SignForm> {
                     onPressed: (){
                       Navigator.pushNamed(context, SignInScreen.routeName);
                     },
-                    child: Text("Ok")),
+                    child: Text("Retry")),
               ],
             ),
           );
@@ -273,7 +280,7 @@ class _SignFormState extends State<SignForm> {
       }
     } catch (e) {
       try {
-        if(e.response.data.containsKey('success') && !e.response.data['success'] && e.response.data.containsKey('msg')){
+        if(e.response.data.containsKey('success')){ //&& !e.response.data['success'] && e.response.data.containsKey('msg')){
           if(e.response.data['msg'] == "Incorrect Password")
           {
             hasError = true;
@@ -294,6 +301,7 @@ class _SignFormState extends State<SignForm> {
       print(errMsg);
     }
   }
+
 
 
 

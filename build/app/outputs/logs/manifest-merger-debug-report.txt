@@ -5,24 +5,25 @@ INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\
 INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml:1:1-66:12
 INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml:1:1-66:12
 MERGED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml:1:1-66:12
-MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
-MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:flutter_facebook_login] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:17:1-42:12
+MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:21:1-37:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:17:1-39:12
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\27da346774c558eae502adfd5204ef3f\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\39c6dda2b62407bab93336e282938f02\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\1cad50e824c2a91bda736a296b3e673e\play-services-base-17.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5753b95f3cf9ccc8e9f749b4d7606aff\jetified-firebase-common-19.3.0\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\10631bb3012ccad9c5c9285264903a3d\play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
-MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:21:1-31:12
-MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:21:1-37:12
-MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\09be4c98f955b63e9a8cadeb6d33d870\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\0986d0d74b8a2c7da8161f6370fc7744\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\615cab8ad6393a9c868d48761bbea666\activity-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -81,6 +82,10 @@ MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\b
 MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:23:5-40:19
+MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:28:5-35:19
+MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:28:5-35:19
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:7:5-8:19
@@ -93,10 +98,6 @@ MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\sriro\.
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\10631bb3012ccad9c5c9285264903a3d\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
-MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:28:5-29:19
-MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:28:5-29:19
-MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:28:5-35:19
-MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:28:5-35:19
 MERGED from [com.facebook.android:facebook-core:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\c925ed4122f8e40420ba6191d074af37\jetified-facebook-core-5.5.1\AndroidManifest.xml:28:5-59:19
 MERGED from [com.facebook.android:facebook-core:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\c925ed4122f8e40420ba6191d074af37\jetified-facebook-core-5.5.1\AndroidManifest.xml:28:5-59:19
 MERGED from [androidx.core:core:1.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\a528b13ac93e64cafa3d0480e2c93207\core-1.1.0\AndroidManifest.xml:24:5-89
@@ -203,28 +204,36 @@ uses-sdk
 INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\main\AndroidManifest.xml
-MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_facebook_login] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\flutter_facebook_login\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\shared_preferences\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:21:5-44
+MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:24:5-26:41
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\27da346774c558eae502adfd5204ef3f\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\27da346774c558eae502adfd5204ef3f\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\39c6dda2b62407bab93336e282938f02\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\39c6dda2b62407bab93336e282938f02\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5d969933da33d4ffbe53111a63fb5c09\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\1cad50e824c2a91bda736a296b3e673e\play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\1cad50e824c2a91bda736a296b3e673e\play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\5753b95f3cf9ccc8e9f749b4d7606aff\jetified-firebase-common-19.3.0\AndroidManifest.xml:20:5-22:41
@@ -233,12 +242,6 @@ MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\sriro\.
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\10631bb3012ccad9c5c9285264903a3d\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-login:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\9a0760b3766f8d4eefd1ac63f7f9cbe2\jetified-facebook-login-5.5.1\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:24:5-26:41
-MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d8e69336e21c6a428e8a9e9d99518477\appcompat-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\09be4c98f955b63e9a8cadeb6d33d870\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\09be4c98f955b63e9a8cadeb6d33d870\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\0986d0d74b8a2c7da8161f6370fc7744\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -319,6 +322,30 @@ MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\
 MERGED from [:google_sign_in] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
 	android:name
 		ADDED from C:\Users\sriro\AndroidStudioProjects\Heartfulness\android\app\src\debug\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.READ_SMS
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.SEND_SMS
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-70
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-67
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-72
+uses-permission#android.permission.READ_CONTACTS
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-72
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-69
+uses-permission#android.permission.READ_PROFILE
+ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-71
+	android:name
+		ADDED from [:sms] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\sms\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-68
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:firebase_auth] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] C:\Users\sriro\AndroidStudioProjects\Heartfulness\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
@@ -369,6 +396,10 @@ ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\cac
 		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:38:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\337e24a263fdd84e41b4282b5c834462\firebase-auth-19.2.0\AndroidManifest.xml:37:17-109
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:33:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:33:19-68
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\d25420ce83b9c9cd488c0ba2b97a3933\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
 	android:excludeFromRecents
@@ -411,10 +442,6 @@ ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\31ef2cb71d9d3bcb87eecca40422fa32\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-activity#com.facebook.CustomTabMainActivity
-ADDED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:33:9-71
-	android:name
-		ADDED from [com.facebook.android:facebook-common:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\bbc955c72847669b6dbf57641448851a\jetified-facebook-common-5.5.1\AndroidManifest.xml:33:19-68
 provider#com.facebook.internal.FacebookInitProvider
 ADDED from [com.facebook.android:facebook-core:5.5.1] C:\Users\sriro\.gradle\caches\transforms-2\files-2.1\c925ed4122f8e40420ba6191d074af37\jetified-facebook-core-5.5.1\AndroidManifest.xml:39:9-42:40
 	android:authorities

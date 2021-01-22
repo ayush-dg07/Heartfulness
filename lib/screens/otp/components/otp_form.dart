@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/size_config.dart';
-
+import 'package:shop_app/screens/otp/components/otp_core.dart';
 import '../../../constants.dart';
 
 class OtpForm extends StatefulWidget {
@@ -13,6 +13,8 @@ class OtpForm extends StatefulWidget {
   _OtpFormState createState() => _OtpFormState();
 }
 
+  String inputOtp = "";
+  int intOtp;
 class _OtpFormState extends State<OtpForm> {
   FocusNode pin2FocusNode;
   FocusNode pin3FocusNode;
@@ -60,6 +62,7 @@ class _OtpFormState extends State<OtpForm> {
                   decoration: otpInputDecoration,
                   onChanged: (value) {
                     nextField(value, pin2FocusNode);
+                    inputOtp+=value;
                   },
                 ),
               ),
@@ -72,7 +75,10 @@ class _OtpFormState extends State<OtpForm> {
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin3FocusNode),
+                  onChanged: (value) {
+                    nextField(value, pin3FocusNode);
+                    inputOtp += value;
+                  }
                 ),
               ),
               SizedBox(
@@ -84,7 +90,10 @@ class _OtpFormState extends State<OtpForm> {
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
                   decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin4FocusNode),
+                  onChanged: (value) {
+                    nextField(value, pin4FocusNode);
+                    inputOtp+=value;
+                  }
                 ),
               ),
               SizedBox(
@@ -99,6 +108,9 @@ class _OtpFormState extends State<OtpForm> {
                   onChanged: (value) {
                     if (value.length == 1) {
                       pin4FocusNode.unfocus();
+                      inputOtp += value;
+                      intOtp = int.parse(inputOtp);
+                      print("The otp entered: " + "$intOtp");
                       // Then you need to check is the code is correct or not
                     }
                   },
@@ -109,7 +121,10 @@ class _OtpFormState extends State<OtpForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
             text: "Continue",
-            press: () {},
+            press: () {
+              otpCheck(context, intOtp);
+              //Navigator.pushNamed(); //should push to the stories page hehe
+            },
           )
         ],
       ),

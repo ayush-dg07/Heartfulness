@@ -21,5 +21,6 @@ public final class GeneratedPluginRegistrant {
     flutterEngine.getPlugins().add(new io.flutter.plugins.googlesignin.GoogleSignInPlugin());
     flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());
     flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
+      com.babariviere.sms.SmsPlugin.registerWith(shimPluginRegistry.registrarFor("com.babariviere.sms.SmsPlugin"));
   }
 }

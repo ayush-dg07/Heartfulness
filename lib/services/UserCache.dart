@@ -21,6 +21,7 @@ class UserCache{
     try {
       await this.ensureInitialization;
       await RAM.setString("UserCache", json.encode(response));
+      print("Writing to cache");
     } catch (e) {
       print("[ERROR] " + e.toString());
     }

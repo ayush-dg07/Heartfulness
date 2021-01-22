@@ -160,6 +160,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  flutter_otp:
+    dependency: "direct main"
+    description:
+      name: flutter_otp
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.2"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -177,6 +184,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.4"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -309,14 +323,14 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.0"
+    version: "1.9.2"
   petitparser:
     dependency: transitive
     description:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.4"
+    version: "3.1.0"
   platform:
     dependency: transitive
     description:
@@ -344,7 +358,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.2+3"
+    version: "4.3.3"
   quiver:
     dependency: transitive
     description:
@@ -399,6 +413,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sms:
+    dependency: transitive
+    description:
+      name: sms
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.4"
   source_span:
     dependency: transitive
     description:

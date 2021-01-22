@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
-
+import 'otp_core.dart';
 import 'otp_form.dart';
+import 'package:shop_app/screens/complete_profile/components/complete_profile_form.dart';
 
 class Body extends StatelessWidget {
+
+
+  CompleteProfileForm details = new CompleteProfileForm();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -27,6 +31,7 @@ class Body extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // OTP code resend
+                  otpSend(context, details.phone);
                 },
                 child: Text(
                   "Resend OTP Code",
