@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sriro\\AndroidStudioProjects\\Heartfulness\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\Users\\sriro\\AndroidStudioProjects\\Heartfulness-app\\Heartfulness\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sriro\\.gradle\\caches\\transforms-2\\files-2.1\\d25420ce83b9c9cd488c0ba2b97a3933\\jetified-play-services-auth-16.0.1\\res\\values-watch-v20\\values.xml",

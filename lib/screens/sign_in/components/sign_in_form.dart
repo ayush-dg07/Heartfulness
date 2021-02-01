@@ -5,23 +5,18 @@ import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/screens/complete_profile/components/complete_profile_form.dart';
 import 'package:shop_app/helper/urls.dart';
 import 'package:shop_app/services/UserCache.dart';
+import 'package:shop_app/services/GlobalVariables.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
+
 import 'dart:convert';
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import 'package:dio/dio.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:cookie_jar/cookie_jar.dart';
-import 'package:shop_app/services/localstorage_service.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -29,11 +24,15 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  GlobalVariables g = GlobalVariables();
   final _formKey = GlobalKey<FormState>();
-  String username;
+  //String userName;
   String password;
   bool remember = false;
   final List<String> errors = [];
+
+  Storage cache = Storage();
+
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -91,16 +90,16 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 KeyboardUtil.hideKeyboard(context);
-                loginAuth();
-                // Future res = userLogin(username, password);
-                // print("Handling the press button " + "$res");
-                Future checkUser = getUser();
-                // print(checkUser);
-                // if all are valid then go to success screen
-                checkUser.then((value) => checkUser) != null  ?
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName) :
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-
+                String key = await userLogin(g.userName, password);
+                Future<dynamic> user = cache.getCache(g.userKey);
+                if(user != ""){
+                  bool flag = await checkData(g.userName);
+                  if(flag == true){
+                    print("ready to go to stories page");
+                  } else {
+                    Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                  }
+                }
               }
             },
           ),
@@ -110,7 +109,7 @@ class _SignFormState extends State<SignForm> {
   }
 
   var completeForm = new CompleteProfileForm();
-  LocalStorageService storage = LocalStorageService();
+  bool loginPressed = false;
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
@@ -137,8 +136,6 @@ class _SignFormState extends State<SignForm> {
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
-        // If  you are using latest version of flutter then label text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
@@ -148,7 +145,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildUserNameFormField() {
     return TextFormField(
       keyboardType: TextInputType.text,
-      onSaved: (newValue) => username= newValue,
+      onSaved: (newValue) => g.userName = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
@@ -170,140 +167,74 @@ class _SignFormState extends State<SignForm> {
       decoration: InputDecoration(
         labelText: "Username",
         hintText: "Enter your username",
-        // If  you are using latest version of flutter then label text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
       ),
     );
   }
 
-//   Future<http.Response> userLogin(username, password) async{
-//     // var url = 'http://192.168.0.2:8000/login';
-//
-//     completeForm.userName = username;
-//
-//     var body = json.encode(
-//       {"username": username,
-//       "password": password}
-//     );
-//
-//     try {
-//       var response = await http.post(
-//           Urls.login,
-//           headers: {"Content-Type": "application/json"},
-//           body: body);
-//       print("${response.statusCode}");
-//       print("${response.body}");
-//       return response;
-//     } catch (e) {
-//       print("The exception thrown is $e");
-//     }
-//
-//
-// }
 
-  Future<http.Request> getUser() async{
+  //concerned with only logging the user into the account
+  userLogin(username, password) async{
 
-    // var url = "http://192.168.0.2:8000/getUser";
-    var req = await http.get(
-      Urls.update,
-      headers: {"Content-Type": "application/json"},
+    var body = json.encode(
+      {
+        "username": username,
+        "password": password
+      }
     );
-    if(req.statusCode == HttpStatus.ok){
-      final jsonResponse = json.decode(req.body);
-      if(jsonResponse != null)
-        return jsonResponse["data"];
-      else{
-        return jsonResponse;
-      }
-    }
-  }
 
-  bool loginPressed = false;
-  final userCache = UserCache();
-
-  Future<Widget> loginAuth() async {
-    Map resp;
-    bool hasError = false;
-    String errMsg = "Unexpected error";
     try {
-      final form = _formKey.currentState;
-      if (form.validate()) {
-        setState(() {
-          loginPressed = true;
-        });
-        var dio = Dio();
-        Directory appDocDir = await getApplicationDocumentsDirectory();
-        var cj = PersistCookieJar(dir: appDocDir.path, ignoreExpires: false);
-        dio.interceptors.add(CookieManager(cj));
+      var response = await http.post(
+          Urls.login,
+          headers: {"Content-Type": "application/json"},
+          body: body);
+      var cookieQuery = response.headers["set-cookie"];
+      List list = cookieQuery.split(";");
+      List cookieBody = list[0].split("=");
+      print(cookieBody[1]);
 
-        Response response = await dio.post(Urls.login, data: {
-          'username': username,
-          'password': password,
-        });
-
-        LocalStorageService.usernameKey = username;
-        LocalStorageService.passwordKey = password;
-        storage.saveStringToDisk(LocalStorageService.usernameKey, LocalStorageService.passwordKey);
-        resp = json.decode(response.toString());
-        if (resp.containsKey('success')) {
-          await userCache.write(response.data);
-          print("Login success");
-        }else {
-          hasError = true;
-          errMsg = "Username/password combination incorrect";
-          return Container(
-            child: AlertDialog(
-              title: Text("Invalid entry"),
-              content: SingleChildScrollView(
-                child: ListBody(
-                  children: <Widget>[
-                    Text("Username/password combination incorrect"),
-                  ],
-                ),
-              ),
-              actions: <Widget>[
-                TextButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, SignInScreen.routeName);
-                    },
-                    child: Text("Retry")),
-              ],
-            ),
-          );
-
+      g.userKey = cookieBody[1];
+      // ignore: unrelated_type_equality_checks
+      if(response.statusCode == HttpStatus.ok){
+        print("Inside signIn block: ${response.statusCode}");
+        print("${response.body}");
+        try{
+          cache.setCache(g.userKey);
+          return g.userKey;
+        }catch(e){
+          print("Error in the try block of userLogin: " + e);
         }
-      } else {
-        hasError = true;
-        errMsg = "Invalid Information";
-      }
+      }else
+        print(response.statusCode);
+      return response;
     } catch (e) {
-      try {
-        if(e.response.data.containsKey('success')){ //&& !e.response.data['success'] && e.response.data.containsKey('msg')){
-          if(e.response.data['msg'] == "Incorrect Password")
-          {
-            hasError = true;
-            errMsg = "Incorrect Password";
-          }
-          else if(e.response.data['msg'] == "Incorrect Email")
-          {
-            hasError = true;
-            errMsg = "Incorrect Email";
-          }
-        }
-      } catch (e) {
-        hasError = true;
-        errMsg = "Unexpected error";
-      }
+      print("Failed post request with exception: $e");
     }
-    if (hasError) {
-      print(errMsg);
+
+
+}
+  //using getUser endpoint to check if there's phone number in it; if phonenumber then already updated else get those details
+  Future<bool> checkData(username) async {
+    bool isSet = false;
+    var response = await http.get(
+      Urls.getUser,
+      headers: {"Content-Type": "application/json"}
+    );
+
+    var body = json.decode(response.body);
+    List rest = body["data"] ?? [];
+    print(rest);
+
+    if(rest.contains('phone')){
+      //contains number
+      isSet = true;
+      return isSet;
+    } else {
+      isSet = false;
+      return isSet;
     }
   }
-
-
-
 
 }
 

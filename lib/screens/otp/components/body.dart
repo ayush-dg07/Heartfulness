@@ -4,10 +4,10 @@ import 'package:shop_app/size_config.dart';
 import 'otp_core.dart';
 import 'otp_form.dart';
 import 'package:shop_app/screens/complete_profile/components/complete_profile_form.dart';
+import 'package:shop_app/services/UserCache.dart';
 
 class Body extends StatelessWidget {
-
-
+  Storage storage = Storage();
   CompleteProfileForm details = new CompleteProfileForm();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,8 @@ class Body extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // OTP code resend
-                  otpSend(context, details.phone);
+                  var num = storage.getPhoneNumber();
+                  otpSend(context, num);
                 },
                 child: Text(
                   "Resend OTP Code",

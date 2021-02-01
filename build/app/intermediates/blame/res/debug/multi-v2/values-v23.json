@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\sriro\\AndroidStudioProjects\\Heartfulness\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\sriro\\AndroidStudioProjects\\Heartfulness-app\\Heartfulness\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\sriro\\.gradle\\caches\\transforms-2\\files-2.1\\a722f7742f3f6d8bbfd4822beeefff87\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

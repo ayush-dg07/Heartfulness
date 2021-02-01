@@ -8,28 +8,22 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shop_app/services/UserCache.dart';
 import 'package:shop_app/screens/otp/components/otp_core.dart';
-import 'package:shop_app/services/localstorage_service.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'package:shop_app/services/GlobalVariables.dart';
 
 class CompleteProfileForm extends StatefulWidget {
-  String userName;
-  String firstName;
-  String lastName;
-  String profession;
-  String age;
-  String phone;
-  String address;
   @override
   _CompleteProfileFormState createState() => _CompleteProfileFormState();
 }
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
+  GlobalVariables g = GlobalVariables();
   final _formKey = GlobalKey<FormState>();
-  final userCache = UserCache();
+  final cache = Storage();
   final List<String> errors = [];
 
-  String userName;
+  //CompleteProfileForm userName;
   String firstName;
   String lastName;
   String profession;
@@ -38,8 +32,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String address;
   String city;
   String country;
-  int pinCode;
-
+  String pinCode;
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -55,17 +48,37 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       });
   }
 
-  Future validateCache() async{
-    String loginCache = await userCache.read();
-    print("The read value from cache is: " + loginCache);
-
-    if(loginCache.contains("username")){
-      Map<String,dynamic> user = json.decode(loginCache.toString());
-      if(user.containsKey('username')){
-        userName = user['username'];
+  Future<http.Response> userDetails(userName, firstName, lastName, profession, age, phoneNumber, address, city, country, pinCode) async {
+    var body = json.encode({
+      "userName": userName,
+      "phoneNumber": phoneNumber,
+      "userData": {
+        "firstName": firstName,
+        "lastName": lastName,
+        "profession": profession,
+        "age": age,
+        "address": {
+          "line1": address,
+          "city": city,
+          "country": country,
+          "pinCode": pinCode
+        }
       }
-    }
+    });
+
+
+    var session = cache.getCache(g.userKey);
+    var response = await http.post(Urls.update,
+        headers: {"Content-Type": "application/json"},
+        body: body
+    );
+
+    print("${response.statusCode}");
+    print(json.decode(response.body).toString());
+
+    return response;
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -92,14 +105,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           buildPinCodeFormField(),
           SizedBox(height: getProportionateScreenHeight(25)),
           DefaultButton(
-            text: "continue",
+            text: "Submit details",
             press: () async {
-              await validateCache();
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
-                otpSend(context ,phone);
-                Future response = userDetails(
-                    userName,
+
+                await cache.setPhoneNumber(phone);
+                otpSend(context, phone);
+                userDetails(
+                    g.userName,
                     firstName,
                     lastName,
                     profession,
@@ -121,9 +135,23 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildAddressFormField() {
     return TextFormField(
+      onSaved: (newValue) => address = newValue,
       decoration: InputDecoration(
         labelText: "Address",
         hintText: "Enter your Address",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon:
+            CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildCityFormField() {
+    return TextFormField(
+      onSaved: (newValue) => city = newValue,
+      decoration: InputDecoration(
+        labelText: "City",
+        hintText: "Enter your City",
         // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -132,21 +160,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       ),
     );
   }
-  TextFormField buildCityFormField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: "City",
-        hintText: "Enter your City",
-        // If  you are using latest version of flutter then label text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon:
-        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
-      ),
-    );
-  }
+
   TextFormField buildCountryFormField() {
     return TextFormField(
+      onSaved: (newValue) => country = newValue,
       decoration: InputDecoration(
         labelText: "Country",
         hintText: "Enter your Country",
@@ -154,41 +171,41 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
-        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
       ),
     );
   }
+
   TextFormField buildPinCodeFormField() {
     return TextFormField(
+      onSaved: (newValue) => pinCode = newValue,
       decoration: InputDecoration(
         labelText: "Pin-Code",
         hintText: "Enter your Pin-Code",
-        // If  you are using latest version of flutter then label text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
-        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
       ),
     );
   }
 
   TextFormField buildPhoneNumberFormField() {
-      return TextFormField(
-        keyboardType: TextInputType.phone,
-        onSaved: (newValue) => phone = newValue,
-        onChanged: (value) {
-          if (value.isNotEmpty) {
-            removeError(error: kPhoneNumberNullError);
-          }
-          return null;
-        },
-        validator: (value) {
-          if (value.isEmpty) {
-            addError(error: kPhoneNumberNullError);
-            return "";
-          }
-          return null;
-        },
+    return TextFormField(
+      keyboardType: TextInputType.phone,
+      onSaved: (newValue) => phone = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPhoneNumberNullError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kPhoneNumberNullError);
+          return "";
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: "Phone Number",
         hintText: "Enter your phone number",
@@ -260,42 +277,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       decoration: InputDecoration(
         labelText: "First Name",
         hintText: "Enter your first name",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
       ),
     );
   }
 
-  LocalStorageService storage = LocalStorageService();
 
-  Future<http.Response> userDetails(userName, firstName, lastName, profession, age, phoneNumber, address, city, country, pinCode) async{
-
-    var body = json.encode({
-      "userName": userName,
-      "phoneNumber":phoneNumber,
-      "userData": {
-        "firstName": firstName,
-        "lastName": lastName,
-        "profession": profession,
-        "age": age,
-        "address":{
-          "line1": address,
-          "city": city,
-          "country": country,
-          "pinCode": pinCode
-        }
-      }
-    });
-    storage.getFromDisk(userName);
-    var response = await http.post(Urls.update,
-        headers: {"Content-Type": "application/json"},
-        body: body);
-
-    print("${response.statusCode}");
-    print(json.decode(response.body).toString());
-
-    return response;
-  }
 }
